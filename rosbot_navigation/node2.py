@@ -14,8 +14,8 @@ from sensor_msgs.msg import LaserScan
 
 
 class HazardMarkerDetector(Node):
-    def _init_(self):
-        super()._init_('hazard_marker_detector')
+    def __init__(self):
+        super().__init__('hazard_marker_detector')
 
         self.create_subscription(ObjectsStamped, '/objectsStamped', self.object_callback, 10)
         self.marker_pub = self.create_publisher(Marker, '/hazards', 10)
@@ -206,5 +206,5 @@ def main(args=None):
         rclpy.shutdown()
         print("HazardMarkerDetector node shutdown complete.")
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     main()
